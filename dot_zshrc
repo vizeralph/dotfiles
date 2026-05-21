@@ -1,0 +1,25 @@
+###################
+# SHELL VARIABLES #
+###################
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+bindkey -e
+
+###########
+# ALIASES #
+###########
+alias grep='grep --color=auto'
+alias ls='eza --icons --group-directories-first'
+
+##################
+# PROMPT & THEME #
+##################
+eval "$(starship init zsh)"
+
+###########
+# PLUGINS #
+###########
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
