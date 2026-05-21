@@ -1,14 +1,14 @@
 [Unit]
-Description=GeoClue Authentication Agent
-Documentation=man:geoclue(8)
+Description=GeoClue Agent
+Documentation=man:geoclue(5)
 After=dbus.service
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
 ExecStart=/usr/lib/geoclue-2.0/demos/agent
-Restart=on-failure
 RestartSec=5
+Restart=on-failure
 
 [Install]
 WantedBy=graphical-session.target

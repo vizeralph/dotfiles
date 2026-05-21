@@ -1,9 +1,13 @@
-###################
-# SHELL VARIABLES #
-###################
+####################
+# SHELL PARAMETERS #
+####################
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
+###################
+# ZSH LINE EDITOR #
+###################
 bindkey -e
 
 ###########
