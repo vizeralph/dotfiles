@@ -11,5 +11,5 @@ hl.config({
   input = require(current_path .. ".input"),
   master = require(current_path .. ".master"),
   misc = require(current_path .. ".misc"),
-  scrolling = require(current_path .. ".scrolling"),
+  scrolling = require(current_path .. ".scrolling")
 })

@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 --------------------
 -- USER INTERFACE --
 --------------------
-local highlights = {
+local ui_highlights = {
   "EndOfBuffer",
   "NonText",
   "Normal",
@@ -16,8 +16,8 @@ local highlights = {
   --"StatusLine"
 }
 
-for _, highlight in ipairs(highlights) do
-  vim.api.nvim_set_hl(0, highlight, { bg = "NONE", ctermbg = "NONE" })
+for _, ui_highlight in ipairs(ui_highlights) do
+  vim.api.nvim_set_hl(0, ui_highlight, { bg = "NONE", ctermbg = "NONE" })
 end
 
 -----------------
