@@ -1,0 +1,3 @@
+local current_path = ...
+
+require(current_path .. ".three_fingers")

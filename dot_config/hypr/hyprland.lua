@@ -1,0 +1,7 @@
+require("hyprland.bind.default")
+require("hyprland.config")
+require("hyprland.device")
+require("hyprland.gesture")
+require("hyprland.monitor.default")
+require("hyprland.window_rule")
+require("hyprland.workspace_rule")
