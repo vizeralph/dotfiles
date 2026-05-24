@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eu
+
+# package.toml hash: {{ include "dot_config/yazi/package.toml" | sha256sum }}
+
+if ! command -v ya &>/dev/null; then
+    echo "'ya' command not found. Skipping..."
+    exit 0
+fi
+
+echo "Installing plugins..."
+ya pkg install

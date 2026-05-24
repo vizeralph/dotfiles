@@ -5,14 +5,14 @@ return {
   inactive_opacity = 1.0,
 
   blur = {
-    enabled = false
+    enabled = false,
   },
 
   shadow = {
-    enabled = false
+    enabled = false,
   },
 
   glow = {
-    enabled = false
-  }
+    enabled = false,
+  },
 }

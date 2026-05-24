@@ -12,8 +12,8 @@ local ui_highlights = {
   "Normal",
   "NormalNC",
   "SignColumn",
+  --"StatusLine",
   "StatusLineNC",
-  --"StatusLine"
 }
 
 for _, ui_highlight in ipairs(ui_highlights) do
@@ -26,14 +26,17 @@ end
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-----------------
--- WHITESPACE --
-----------------
+-----------------
+-- INDENTATION --
+-----------------
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
 
+----------------
+-- WHITESPACE --
+----------------
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#404040" })
 vim.opt.list = true
 vim.opt.listchars = {
@@ -41,5 +44,5 @@ vim.opt.listchars = {
   nbsp = '␣',
   space = '·',
   tab = '» ',
-  trail = '×'
+  trail = '×',
 }

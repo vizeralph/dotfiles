@@ -1,3 +1,3 @@
 return {
-  preserve_split = true
+  preserve_split = true,
 }

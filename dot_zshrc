@@ -13,6 +13,7 @@ bindkey -e
 ###########
 # ALIASES #
 ###########
+alias arch-wiki='firefox /usr/share/doc/arch-wiki/html/en/'
 alias grep='grep --color=auto'
 alias ls='eza --icons --group-directories-first'
 

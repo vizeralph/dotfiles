@@ -1,7 +1,13 @@
-require("hyprland.bind.default")
-require("hyprland.config")
-require("hyprland.device")
-require("hyprland.gesture")
-require("hyprland.monitor.default")
-require("hyprland.window_rule")
-require("hyprland.workspace_rule")
+local modules = {
+  "config",
+  "device",
+  "gesture",
+  "bind.default",
+  "monitor.default",
+  "window_rule",
+  "workspace_rule",
+}
+
+for _, module in ipairs(modules) do
+  require("hyprland." .. module)
+end

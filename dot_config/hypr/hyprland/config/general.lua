@@ -5,13 +5,13 @@ return {
 
   -- col = {
   --   inactive_border = ???,
-  --   active_border = ???
+  --   active_border = ???,
   -- },
 
   layout = "dwindle",
   resize_on_border = true,
 
   snap = {
-    enabled = true
-  }
+    enabled = true,
+  },
 }
