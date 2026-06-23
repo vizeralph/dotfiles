@@ -1,0 +1,5 @@
+[mgr]
+ratio = [1, 2, 5]
+linemode = "file_size"
+show_hidden = true
+show_symlink = false
