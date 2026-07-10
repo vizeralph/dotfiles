@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-set -eu
+############
+# SETTINGS #
+############
+set -o errexit
+set -o nounset
+set -o pipefail
 
+########
+# MAIN #
+########
 case "$1" in
     dark)
         SCHEME="prefer-dark"

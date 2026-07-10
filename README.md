@@ -1,2 +1,2 @@
-Hi! Just needed somewhere to store my Arch Linux dots.
+Hi! Just needed somewhere to store my Linux dots.
 (ᵕ—ᴗ—) Don't mind me.
