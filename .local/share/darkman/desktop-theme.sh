@@ -10,7 +10,7 @@ set -o pipefail
 ########
 # MAIN #
 ########
-case "$1" in
+case "${1:-}" in
     dark)
         SCHEME="prefer-dark"
         THEME="Adwaita-dark"
