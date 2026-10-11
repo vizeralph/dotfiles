@@ -1,29 +1,23 @@
-####################
-# SHELL PARAMETERS #
-####################
+#######################
+# SHELL CONFIGURATION #
+#######################
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-###################
-# ZSH LINE EDITOR #
-###################
 bindkey -e
 
 ###########
 # ALIASES #
 ###########
 alias grep='grep --color=auto'
-alias ls='eza --icons --group-directories-first'
+alias ls='eza --icons --group-directories-first --header'
 
-##################
-# PROMPT & THEME #
-##################
+######################
+# SHELL INTEGRATIONS #
+######################
 eval "$(starship init zsh)"
 
-###########
-# PLUGINS #
-###########
 ZSH_PLUGINS_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
 PLUGINS=(
@@ -41,3 +35,5 @@ for plugin in "${PLUGINS[@]}"; do
         source "$target/$plugin.zsh"
     fi
 done
+
+eval "$(zoxide init zsh)"

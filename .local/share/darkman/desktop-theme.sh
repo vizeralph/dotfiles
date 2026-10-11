@@ -21,5 +21,5 @@ case "${1:-}" in
         ;;
 esac
 
-dconf write /org/gnome/desktop/interface/color-scheme "'$SCHEME'"
 dconf write /org/gnome/desktop/interface/gtk-theme "'$THEME'"
+dconf write /org/gnome/desktop/interface/color-scheme "'$SCHEME'"

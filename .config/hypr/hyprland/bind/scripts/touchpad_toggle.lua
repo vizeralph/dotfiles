@@ -1,24 +1,16 @@
-local function toggle_touchpad()
-  local path = os.getenv("HOME") .. "/.config/hypr/hyprland/device/touchpad.lua"
+local touchpad = require("hyprland.devices.touchpad")
+local state = require("hyprland.state")
 
-  local f = io.open(path, "r")
-  if not f then return end
-  local content = f:read("*all")
-  f:close()
+return function()
+	touchpad.enabled = not touchpad.enabled
+	hl.device(touchpad)
 
-  local new_content, count = content:gsub("enabled = true", "enabled = false")
-  local state = "Disabled"
-  if count == 0 then
-    new_content = content:gsub("enabled = false", "enabled = true")
-    state = "Enabled"
-  end
-
-  f = io.open(path, "w")
-  if f then
-    f:write(new_content)
-    f:close()
-    os.execute("notify-send -u low -t 1500 'Touchpad' '" .. state .. "'")
-  end
+	local saved, err = state.set("touchpad", touchpad.enabled)
+	hl.notification.create({
+		text = "Touchpad "
+			.. (touchpad.enabled and "enabled" or "disabled")
+			.. (saved and "" or " (state not saved: " .. err .. ")"),
+		timeout = saved and 1500 or 3000,
+		icon = saved and "info" or "warning",
+	})
 end
-
-return toggle_touchpad

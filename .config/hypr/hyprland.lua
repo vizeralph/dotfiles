@@ -1,13 +1,9 @@
-local modules = {
-  "config",
-  "device",
-  "gesture",
-  "bind.default",
-  "monitor.default",
-  "window_rule",
-  "workspace_rule",
-}
+require("hyprland.config.default")
+require("hyprland.config.minimalist")
 
-for _, module in ipairs(modules) do
-  require("hyprland." .. module)
-end
+require("./hyprland/bind/*.lua")
+require("./hyprland/devices/*")
+require("./hyprland/gestures/*")
+require("./hyprland/monitors/*")
+require("./hyprland/window_rules/*")
+require("./hyprland/workspace_rules/*")
