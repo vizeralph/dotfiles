@@ -10,7 +10,12 @@ vim.pack.add({
 -- CONFIGURATION --
 -------------------
 require("noice").setup({
-	presets = {
-		command_palette = true,
+	lsp = { progress = { view = "lsp_notify" } },
+	views = {
+		lsp_notify = {
+			view = "notify",
+			replace = true,
+		},
 	},
+	presets = { command_palette = true },
 })

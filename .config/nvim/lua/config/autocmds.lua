@@ -4,39 +4,21 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "SnacksDashboardUpdatePost",
-	callback = function()
-		for _, win in ipairs(vim.api.nvim_list_wins()) do
-			local buf = vim.api.nvim_win_get_buf(win)
+vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter" }, {
+  callback = function(args)
+    local path = vim.api.nvim_buf_get_name(args.buf)
+    if vim.fn.isdirectory(path) ~= 1 then
+      return
+    end
 
-			if vim.bo[buf].filetype == "snacks_dashboard" then
-				vim.api.nvim_win_call(win, function()
-					local view = vim.fn.winsaveview()
-					view.topline = 1
-					vim.fn.winrestview(view)
-				end)
-			end
-		end
-	end,
-})
+    vim.schedule(function()
+      if vim.api.nvim_get_current_buf() ~= args.buf then
+        return
+      end
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	callback = function(args)
-		vim.schedule(function()
-			if not vim.api.nvim_buf_is_valid(args.buf) then
-				return
-			end
-
-			if vim.api.nvim_get_current_buf() ~= args.buf then
-				return
-			end
-
-			if vim.bo[args.buf].filetype == "snacks_dashboard" then
-				MiniMap.close()
-			elseif vim.bo[args.buf].buftype == "" then
-				MiniMap.open()
-			end
-		end)
-	end,
+      vim.cmd.enew()
+      vim.api.nvim_buf_delete(args.buf, { force = true })
+      Snacks.picker.files({ cwd = path })
+    end)
+  end,
 })

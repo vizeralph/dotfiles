@@ -4,12 +4,8 @@ map("n", "<leader>w", function()
 	vim.opt.list = not vim.opt.list:get()
 end, { desc = "Toggle visible whitespace" })
 
-map("n", "<leader>e", function()
-	Snacks.explorer()
-end, { desc = "Explorer" })
-
 map("n", "<leader>ff", function()
-	Snacks.picker.files()
+	Snacks.picker.resume("files")
 end, { desc = "Find files" })
 
 map("n", "<leader>fg", function()

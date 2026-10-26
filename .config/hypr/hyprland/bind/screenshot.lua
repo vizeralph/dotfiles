@@ -37,11 +37,10 @@ hl.bind(
 -------------------
 -- SELECT REGION --
 -------------------
-hl.bind(
-	"CTRL + ALT + PRINT",
-	hl.dsp.exec_cmd([[
-		geometry=$(slurp) &&
-		[ -n "$geometry" ] &&
-		grim -g "$geometry" - | tee "$HOME/Pictures/Screenshot-$(date +%Y%m%d-%H%M%S).png" | wl-copy --type image/png
-	]])
-)
+local capture_region = hl.dsp.exec_cmd([[
+  geometry=$(slurp) &&
+  [ -n "$geometry" ] &&
+  grim -g "$geometry" - | tee "$HOME/Pictures/Screenshot-$(date +%Y%m%d-%H%M%S).png" | wl-copy --type image/png
+]])
+hl.bind("CTRL + ALT + PRINT", capture_region)
+hl.bind("SUPER + SHIFT + S", capture_region)

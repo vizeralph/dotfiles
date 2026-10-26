@@ -1,7 +1,4 @@
 hl.window_rule({
-	-----------
-	-- PROPS --
-	-----------
 	match = {
 		class = "^$",
 		title = "^$",
@@ -11,8 +8,5 @@ hl.window_rule({
 		pin = false,
 	},
 
-	---------------------
-	-- DYNAMIC EFFECTS --
-	---------------------
 	no_focus = true,
 })

@@ -1,31 +1,14 @@
 ------------
--- GLOBAL --
+-- LEADER --
 ------------
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.g.loaded_netrw = 1
 
---------------------
--- USER INTERFACE --
---------------------
-local ui_highlights = {
-	"EndOfBuffer",
-	"NonText",
-	"Normal",
-	"NormalNC",
-	"SignColumn",
-	--"StatusLine",
-	"StatusLineNC",
-}
-
-for _, ui_highlight in ipairs(ui_highlights) do
-	vim.api.nvim_set_hl(0, ui_highlight, { bg = "NONE", ctermbg = "NONE" })
-end
-
------------------
--- LINE NUMBER --
------------------
-vim.opt.number = true
-vim.opt.relativenumber = true
+---------------
+-- CLIPBOARD --
+---------------
+vim.opt.clipboard = "unnamedplus"
 
 -----------------
 -- INDENTATION --
@@ -35,10 +18,42 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = -1
 vim.opt.tabstop = 2
 
+--------------
+-- SPELLING --
+--------------
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
+----------------
+-- APPEARANCE --
+----------------
+local highlight_groups = {
+	"EndOfBuffer",
+	"NonText",
+	"Normal",
+	"NormalNC",
+	"SignColumn",
+	"StatusLine",
+	"StatusLineNC",
+}
+for _, highlight in ipairs(highlight_groups) do
+	vim.api.nvim_set_hl(0, highlight, {
+		bg = "NONE",
+		ctermbg = "NONE",
+		update = true,
+	})
+end
+vim.opt.fillchars:append({ eob = " " })
+
+------------------
+-- LINE NUMBERS --
+------------------
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 ----------------
 -- WHITESPACE --
 ----------------
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#404040" })
 vim.opt.list = true
 vim.opt.listchars = {
 	lead = "·",
@@ -47,9 +62,16 @@ vim.opt.listchars = {
 	tab = "» ",
 	trail = "×",
 }
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
 
--- TO BE ORGANIZED LATER --
-vim.opt.clipboard = "unnamedplus"
-vim.opt.fillchars:append({ eob = " " })
+-------------------
+-- COLUMN GUIDES --
+-------------------
+vim.opt.colorcolumn = "80,120"
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#101010" })
+
+----------------
+-- STATUSLINE --
+----------------
 vim.opt.laststatus = 3
 vim.opt.ruler = false

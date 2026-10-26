@@ -11,7 +11,9 @@
       devShells.${system}.default = pkgs.mkShellNoCC {
         packages = [
           pkgs.lua-language-server
+          pkgs.prettier
           pkgs.stylua
+          pkgs.taplo
         ];
       };
     };

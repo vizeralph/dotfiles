@@ -2,9 +2,9 @@
 --                               CORE COMPONENT                               --
 --============================================================================--
 
----------------------
+-----------------------
 -- SYMLINK INDICATOR --
----------------------
+-----------------------
 Entity:children_add(function(self)
 	return self._file.link_to and " " or ""
 end, 4500)
@@ -47,6 +47,4 @@ end, 500, Status.RIGHT)
 -----------------
 -- FULL BORDER --
 -----------------
-require("full-border"):setup({
-	type = ui.Border.ROUNDED,
-})
+require("full-border"):setup()
