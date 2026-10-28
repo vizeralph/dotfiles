@@ -21,19 +21,19 @@ eval "$(starship init zsh)"
 ZSH_PLUGINS_DIRECTORY="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
 PLUGINS=(
-    zsh-autocomplete
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+  zsh-autocomplete
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 for plugin in "${PLUGINS[@]}"; do
-    target="$ZSH_PLUGINS_DIRECTORY/$plugin"
+  target="$ZSH_PLUGINS_DIRECTORY/$plugin"
 
-    if [[ -f "$target/$plugin.plugin.zsh" ]]; then
-        source "$target/$plugin.plugin.zsh"
-    elif [[ -f "$target/$plugin.zsh" ]]; then
-        source "$target/$plugin.zsh"
-    fi
+  if [[ -f "$target/$plugin.plugin.zsh" ]]; then
+    source "$target/$plugin.plugin.zsh"
+  elif [[ -f "$target/$plugin.zsh" ]]; then
+    source "$target/$plugin.zsh"
+  fi
 done
 
 eval "$(zoxide init zsh)"

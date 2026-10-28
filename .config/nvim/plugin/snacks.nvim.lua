@@ -44,6 +44,26 @@ require("snacks").setup({
 		sections = {
 			{ section = "header" },
 			{
+				key = "f",
+				action = ":lua Snacks.picker.files()",
+				hidden = true,
+			},
+			{
+				key = "n",
+				action = ":enew",
+				hidden = true,
+			},
+			{
+				key = "q",
+				action = ":quitall",
+				hidden = true,
+			},
+			{
+				key = "t",
+				action = ":lua Snacks.picker.grep()",
+				hidden = true,
+			},
+			{
 				indent = 2,
 				padding = 1,
 				section = "recent_files",
@@ -72,10 +92,14 @@ require("snacks").setup({
 		sources = {
 			files = {
 				matcher = { sort_empty = true },
+				transform = function(item)
+					local path = item.file or item.text
+					item.sort = path:gsub("([^/]+)/", "!%1/"):gsub("([^/]+)$", "#%1")
+				end,
 				sort = {
 					fields = {
 						"score:desc",
-						"file",
+						"sort",
 						"idx",
 					},
 				},
@@ -83,8 +107,9 @@ require("snacks").setup({
 			},
 		},
 		layout = { fullscreen = true },
-		win = { preview = { wo = { list = true } } },
+		win = {
+			input = { keys = { ["h"] = { "toggle_hidden", mode = "n" } } },
+			preview = { wo = { list = true } },
+		},
 	},
-
-	terminal = {},
 })

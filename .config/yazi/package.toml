@@ -3,5 +3,10 @@ use = "yazi-rs/plugins:full-border"
 rev = "e0bbd20"
 hash = "17ebde15c4349f90aedbc45984b98db2"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:types"
+rev = "e0bbd20"
+hash = "d368d5a6a72657e1c0e7ee7340dcea8c"
+
 [flavor]
 deps = []

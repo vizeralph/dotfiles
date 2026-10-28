@@ -30,12 +30,10 @@ Status:children_add(function()
 		return ""
 	end
 
-	local user = ya.user_name(hovered.cha.uid) or tostring(hovered.cha.uid)
-	local group = ya.group_name(hovered.cha.gid) or tostring(hovered.cha.gid)
 	return ui.Line({
-		ui.Span(user):fg("magenta"),
+		ui.Span(ya.user_name(hovered.cha.uid) or tostring(hovered.cha.uid)):fg("magenta"),
 		":",
-		ui.Span(group):fg("magenta"),
+		ui.Span(ya.group_name(hovered.cha.gid) or tostring(hovered.cha.gid)):fg("magenta"),
 		" ",
 	})
 end, 500, Status.RIGHT)
